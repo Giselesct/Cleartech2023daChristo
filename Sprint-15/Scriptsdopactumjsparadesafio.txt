@@ -1,0 +1,230 @@
+it('Cadastrando Nova Categoria', async () => {
+ const postRequestBody={
+    "id": "6aa44d35-b681-475e-826f-e91ffd4629f3",
+    "nome": "Bola que brilha",
+    "status": true,
+    "criacao": "25/07/2023 19:16:37",
+    "modificacao": "Não houve modificações."
+ };
+
+ await spec()
+ .post ('https://localhost:7296/Categoria')
+ .expectStatus(201);
+});	
+
+
+
+it('Cadastrando Nova Subcategoria', async () => {
+ const postRequestBody={
+    "id": "6aa44d35-b681-475e-826f-e91ffd4629f3",
+    "nome": "Bola que brilha",
+    "status": true,
+    "criacao": "25/07/2023 19:16:37",
+    "modificacao": "Não houve modificações."
+ };
+
+ await spec()
+ .post ('https://localhost:7296/Subcategoria')
+ .expectStatus(201);
+});
+
+it('Cadastrando novo Produto ', async () => {
+    const postRequestBody={
+        "id": "2qa85f64-5717-4562-b3fc-2c963f66af5r",
+    "nome": "Bola brilhante demais",
+    "descricao": "Pequena",
+    "peso": 27.0,
+    "altura": 34.0,
+    "largura": 35.0,
+    "comprimento": 90.9,
+    "valor": 40,
+    "quantidadeEmEstoque": 50,
+    "centroDeDistribuicaoId": "49147378-40c0-41cd-b124-1a7317d7f1e3",
+    "status": true,
+    "dataEHoraCriacao": "2023-07-27T01:48:55.820Z",
+    "subcategoriaId": "e85b1709-9abd-4fd4-bc74-d9a3e9978788"
+    };
+   
+    await spec()
+    .post ('https://localhost:7296/Produto')
+    .expectStatus(201);
+   });
+
+  it('Cadastrando novo Centro de distribuicao ', async () => {
+    	const postRequestBody={
+        "nome": "Ctgi",
+        "logradouro": "string",
+        "numero": 25,
+        "complemento": "marçalo",
+        "bairro": "Santo Antonio",
+        "cidade": "Osasco",
+        "uf": "SP",
+        "cep": "06132290",
+        "status": true,
+        "dataEHoraCriacao": "2023-08-01T12:35:23.310Z"
+    };
+   
+    await spec()
+    .post ('https://localhost:7296/CentroDistribuicao')
+    .expectStatus(201);
+   });
+
+ it('Colocando produto no carrinho ', async () => {
+
+    	"produtoId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "quantidade": 0
+
+    };
+   
+    await spec()
+    .post ('https://localhost:7296/CarrinhoDeCompras/id')
+    .expectStatus(201);
+   });
+
+**************************************************************************************************
+
+
+// test.js
+const { spec } = require('pactum');
+
+it('Editando Informações', async () => {
+ const postRequestBody={
+
+  "nome": "string",
+  "status": true
+
+};
+
+await spec()
+ .put('https://localhost:7296/Categoria/d9b18e5f-3fab-4f0e-99dd-7c0a5e3b54cd')
+ .expectStatus(401);
+});
+
+
+
+it('Editando Informações', async () => {
+ const postRequestBody={
+  "nome": "string",
+  "status": true,
+  "dataEHoraModificacao": "2023-10-13T16:38:36.708Z"
+};
+
+await spec()
+ .put('https://localhost:7296/Subcategoria/d9b18e5f-3fab-4f0e-99dd-7c0a5e3b54cd')
+ .expectStatus(401);
+});
+
+it('Editando Informações', async () => {
+ const postRequestBody={
+ "nome": "string",
+  "descricao": "string",
+  "peso": 0,
+  "altura": 0,
+  "largura": 0,
+  "comprimento": 0,
+  "valor": 0,
+  "quantidadeEmEstoque": 0,
+  "status": true
+};
+
+await spec()
+ .put('https://localhost:7296/Produto/d9b18e5f-3fab-4f0e-99dd-7c0a5e3b54cd')
+ .expectStatus(201);
+});
+
+it('Editando Informações', async () => {
+ const postRequestBody={
+  "nome": "string",
+  "numero": 0,
+  "complemento": "string",
+  "cep": "stringst",
+  "status": true
+};
+
+await spec()
+ .put('https://localhost:7296/CentroDeDistribuicao/d9b18e5f-3fab-4f0e-99dd-7c0a5e3b54cd')
+ .expectStatus(201);
+});
+
+it('Editando Informações Carrinho', async () => {
+ const postRequestBody={
+   "cep": "stringst",
+  "numero": 0,
+  "complemento": "string"
+};
+
+await spec()
+ .put('https://localhost:7296/CarrinhoDeCompras/d9b18e5f-3fab-4f0e-99dd-7c0a5e3b54cd')
+ .expectStatus(201);
+});
+******************************************************************************************************
+
+// test.js
+const { spec } = require('pactum');
+
+it('Deletando Categorias', async () => {
+await spec()
+ .delete('https://localhost:7296/Categoria/3fa85f64-5717-4')
+ .expectStatus(201);
+});
+
+
+it('Deletando SubCategorias', async () => {
+    await spec()
+     .delete('https://localhost:7296/Subcategoria/08db6e8b-e62f-493d-88ae-f35e065cea9e')
+     .expectStatus(201);
+    });
+
+    it('Deletando Produtos', async () => {
+        await spec()
+         .delete('https://localhost:7296/Produto/08db6e8b-e62f-493d-88ae-f35e065cea9e')
+         .expectStatus(201);
+        });
+
+        it('Deletando Centro de Distribuicao', async () => {
+            await spec()
+             .delete('https://localhost:7296/CentroDeDistribuicao/08db6e8b-e62f-493d-88ae-f35e065cea9e')
+             .expectStatus(201);
+            });
+
+
+it('Retirando Produtos do Carrinho', async () => {
+            await spec()
+             .delete('https://localhost:7296/CarrinhoDeCompras/Id/Produto/08db6e8b-e62f-493d-88ae-f35e065cea9e')
+             .expectStatus(201);
+            });
+
+*****************************************************************************************************
+
+// test.js
+const { spec } = require('pactum');
+
+it('Pesquisando Categorias', async () => {
+  await spec()
+    .get('https://localhost:7296/Categoria')
+    .expectStatus(200);
+});
+
+it('Pesquisando Subcategorias', async () => {
+  await spec()
+    .get('https://localhost:7296/Subcategoria')
+    .expectStatus(200);
+});
+
+it('Pesquisando Produtos', async () => {
+  await spec()
+    .get('https://localhost:7296/Produto')
+    .expectStatus(200);
+});
+
+it('Pesquisando Centro de Distribuicao', async () => {
+  await spec()
+    .get('https://localhost:7296/CentroDeDistribuicao')
+    .expectStatus(200);
+});
+
+it('Pesquisando Carrinho de Compras', async () => {
+  await spec()
+    .get('https://localhost:7296/CarrinhoDeCompras/id')
+    .expectStatus(200);
+});

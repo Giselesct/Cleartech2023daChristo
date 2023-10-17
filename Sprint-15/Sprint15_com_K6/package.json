@@ -1,0 +1,16 @@
+{
+  "name": "testes_categoria_rick",
+  "version": "1.0.0",
+  "description": "",
+  "main": "del.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOiJkYjgyZGM5NS1iYjc1LTQ3YmEtODRhNi04NTQ3ZGRiN2M5NDgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhZG1pbiIsImV4cCI6MTY5NjcxMDIxMn0.a6TbKCS9lATZ7GrFJlKL5n-uXGpbQsog9foG00e1XK4"
+    },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "k6": "^0.0.0"
+  }
+}
